@@ -1,0 +1,60 @@
+2023-02-12 21:22:11,426 root INFO Opening D:\TEMP\1, found 2133 files.
+2023-02-12 21:22:12,578 root ERROR Traceback (most recent call last):
+  File "MoveImagesVideos.py", line 35, in <module>
+    with Image.open(image_path) as image:
+  File "D:\_projects_github\utilities\utilities\lib\site-packages\PIL\Image.py", line 3283, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'D:\\TEMP\\1\\IMG_20191029_144526.dng'
+
+2023-02-12 21:22:13,749 root ERROR Traceback (most recent call last):
+  File "MoveImagesVideos.py", line 35, in <module>
+    with Image.open(image_path) as image:
+  File "D:\_projects_github\utilities\utilities\lib\site-packages\PIL\Image.py", line 3283, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'D:\\TEMP\\1\\IMG_20201213_205115.dng'
+
+2023-02-12 21:22:13,788 root ERROR Traceback (most recent call last):
+  File "MoveImagesVideos.py", line 35, in <module>
+    with Image.open(image_path) as image:
+  File "D:\_projects_github\utilities\utilities\lib\site-packages\PIL\Image.py", line 3283, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'D:\\TEMP\\1\\IMG_20201213_205123.dng'
+
+2023-02-12 21:22:14,37 root ERROR Traceback (most recent call last):
+  File "MoveImagesVideos.py", line 35, in <module>
+    with Image.open(image_path) as image:
+  File "D:\_projects_github\utilities\utilities\lib\site-packages\PIL\Image.py", line 3283, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'D:\\TEMP\\1\\IMG_20201224_183823.dng'
+
+2023-02-12 21:22:14,80 root ERROR Traceback (most recent call last):
+  File "MoveImagesVideos.py", line 35, in <module>
+    with Image.open(image_path) as image:
+  File "D:\_projects_github\utilities\utilities\lib\site-packages\PIL\Image.py", line 3283, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'D:\\TEMP\\1\\IMG_20201224_183828.dng'
+
+2023-02-12 21:22:15,265 root INFO Closing D:\TEMP\1, 2128 files have been moved.
+2023-02-12 21:22:42,477 root INFO Opening D:\TEMP, found 2613 files.
+2023-02-12 21:22:44,973 root ERROR Traceback (most recent call last):
+  File "MoveImagesVideos.py", line 35, in <module>
+    with Image.open(image_path) as image:
+  File "D:\_projects_github\utilities\utilities\lib\site-packages\PIL\Image.py", line 3283, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'D:\\TEMP\\RJR_7633.MOV'
+
+2023-02-12 21:22:45,193 root ERROR Traceback (most recent call last):
+  File "MoveImagesVideos.py", line 35, in <module>
+    with Image.open(image_path) as image:
+  File "D:\_projects_github\utilities\utilities\lib\site-packages\PIL\Image.py", line 3283, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'D:\\TEMP\\RJR_7963.MOV'
+
+2023-02-12 21:22:46,275 root ERROR Traceback (most recent call last):
+  File "MoveImagesVideos.py", line 35, in <module>
+    with Image.open(image_path) as image:
+  File "D:\_projects_github\utilities\utilities\lib\site-packages\PIL\Image.py", line 3283, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'D:\\TEMP\\RJR_7964.MOV'
+
+2023-02-12 21:22:51,420 root INFO Closing D:\TEMP, 2610 files have been moved.
