@@ -21,9 +21,9 @@ logging.basicConfig(
 	level=logging.INFO)
 
 # Paths
-target_path = 'D:\TEMP\\'
-error_path = 'D:\TEMP\Errors\\'
-all_images_path = Path('D:\_files\#_personal_files\IMAGES')
+target_path = 'D:\TEMP_IMAGES\\'
+error_path = 'D:\TEMP_ERRORS\\'
+all_images_path = Path('D:\\TEMP')
 files = list(all_images_path.rglob('*.*'))
 
 logging.info(f"Opening {all_images_path}, found {len(files)} files.")
@@ -48,10 +48,13 @@ for image_path in files:
         if not dir_path.exists():
             dir_path.mkdir()
         
-        shutil.move(str(image_path), str(dir_path))
+        shutil.move(str(image_path), str(dir_path)) # TODO: Maybe add dir_path + image_path.name to Avoid file losses like what happened to you ???
         number_files_moved = number_files_moved + 1
     except Exception as e:
         logging.error(traceback.format_exc())
-        shutil.move(str(image_path), str(Path(error_path)))
+        err_path = Path(error_path)
+        if not err_path.exists():
+            err_path.mkdir()
+        shutil.move(str(image_path), str(err_path))
 	
 logging.info(f"Closing {all_images_path}, {number_files_moved} files have been moved.")
