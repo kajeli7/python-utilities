@@ -1,2 +1,4 @@
 utilities/**
 move_images_videos_logs.log
+image_duplicate_finders.log
+duplicates.json
