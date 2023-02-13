@@ -64,8 +64,12 @@ def write_duplicates():
                 duplicates[key].append(str(image_path))
             else:
                 duplicates[key] = [str(image_path)]
-
-    json_object = json.dumps(duplicates, indent=4)
+    # Only get duplicated keys
+    final_duplicates = {}
+    for x, y in duplicates.items():
+        if len(y) > 1:
+            final_duplicates[x] = y
+    json_object = json.dumps(final_duplicates, indent=4)
 
     with open("duplicates.json", "w") as outfile:
         outfile.write(json_object)
@@ -79,4 +83,5 @@ def read_duplicates():
             if len(y) > 1:
                 print(x, y)
 
-read_duplicates()
+write_duplicates()
+# read_duplicates()

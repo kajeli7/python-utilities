@@ -11,6 +11,7 @@ import time
 from datetime import date, datetime
 import traceback
 import logging
+import random
 
 Image.MAX_IMAGE_PIXELS = None
 # Configure logging
@@ -20,6 +21,10 @@ logging.basicConfig(
 	format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
 	level=logging.INFO)
 
+# Setup unique numbers
+unique_n = list(range(5, 10000))
+random.shuffle(unique_n)
+
 # Paths
 target_path = 'D:\TEMP_IMAGES\\'
 error_path = 'D:\TEMP_ERRORS\\'
@@ -28,7 +33,7 @@ files = list(all_images_path.rglob('*.*'))
 
 logging.info(f"Opening {all_images_path}, found {len(files)} files.")
 number_files_moved = 0
-
+iUnique = 0
 for image_path in files:
     try:
         exifdata = None
@@ -47,14 +52,28 @@ for image_path in files:
         dir_path = Path(target_path + final_modif_date)
         if not dir_path.exists():
             dir_path.mkdir()
+        final_path_image = Path(str(dir_path) + "\\" + image_path.name)
+        if final_path_image.exists():
+            final_path_image = str(dir_path) + f"\\{image_path.stem}_duplicate_{unique_n[iUnique]}{image_path.suffix}"
+            iUnique = iUnique + 1
+        else:
+            final_path_image = str(dir_path) + "\\" + image_path.name
         
-        shutil.move(str(image_path), str(dir_path)) # TODO: Maybe add dir_path + image_path.name to Avoid file losses like what happened to you ???
+        shutil.move(str(image_path), final_path_image)
         number_files_moved = number_files_moved + 1
     except Exception as e:
         logging.error(traceback.format_exc())
         err_path = Path(error_path)
         if not err_path.exists():
             err_path.mkdir()
-        shutil.move(str(image_path), str(err_path))
+        str_image_path = str(image_path)
+        full_path_in_err_path = str(err_path) + "\\" + image_path.name
+        final_path = Path(full_path_in_err_path)
+        if final_path.exists():
+            final_path = str(err_path) + f"\\{image_path.stem}_duplicate_{unique_n[iUnique]}{image_path.suffix}"
+            iUnique = iUnique + 1
+        else:
+            final_path = full_path_in_err_path
+        shutil.move(str_image_path, final_path)
 	
 logging.info(f"Closing {all_images_path}, {number_files_moved} files have been moved.")
