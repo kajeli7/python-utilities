@@ -82,6 +82,15 @@ def read_duplicates():
         for x, y in json_object.items():
             if len(y) > 1:
                 print(x, y)
+		
+# dupli: Dictionnary
+def remove_duplicates(dupli):
+    for x, y in duplicates.items():
+        arr_deletes = y[1:]
+        for elem in arr_deletes:
+            os.remove(Path(elem))
+
+remove_duplicates(duplicates)
 
 write_duplicates()
 # read_duplicates()
