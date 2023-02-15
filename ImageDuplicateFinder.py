@@ -84,13 +84,28 @@ def read_duplicates():
                 print(x, y)
 		
 # dupli: Dictionnary
-def remove_duplicates(dupli):
-    for x, y in duplicates.items():
-        arr_deletes = y[1:]
-        for elem in arr_deletes:
-            os.remove(Path(elem))
+def remove_duplicates():
+    with open('duplicates.json', 'r') as openfile:
+        json_object = json.load(openfile)
+        for x, y in json_object.items():
+            arr_deletes = y[1:]
+            for elem in arr_deletes:
+                p = Path(elem)
+                if p.is_file():
+                    os.remove(p)
 
-remove_duplicates(duplicates)
+def number_removed_files():
+    with open('duplicates.json', 'r') as openfile:
+        json_object = json.load(openfile)
+        count = 0
+        for x, y in json_object.items():
+            arr_deletes = y[1:]
+            count = count + len(arr_deletes)
+        print(count)
 
-write_duplicates()
+# remove_duplicates(duplicates)
+
+# write_duplicates()
 # read_duplicates()
+# remove_duplicates()
+number_removed_files()
